@@ -1,0 +1,31 @@
+extends layout
+
+mixin boxItems(illustrations)
+  .box-wrapper
+    each boxes in illustrations
+      each item in boxes
+        .box.preload(style= item.color ? 'background-color:'+item.color : '')
+          img(src=item.bg)
+          .content
+            .icon.preload   
+                img(src=item.icon)
+            .text= item.text
+                    
+block content
+    .sign-in-up-wrapper
+        .navbar
+            .logo-wrapper
+                .logo.preload
+                    img(src="/images/logo.png")
+                .text-wrapper
+                    h1.headline kunrp
+                    h1.subline 昆瑞鹏智能管理平台
+            .back-wrapper
+                span.backhome 返回首页
+        .content-wrapper
+            .left-wrapper
+                +boxItems(illustrations)
+            .right-wrapper
+        .footbar
+            ul.menu-wrapper
+            p.copyright Copyright© 2016 - 2017, www.baidu.com. All rights reserved. | ICP备案：苏1835412号
