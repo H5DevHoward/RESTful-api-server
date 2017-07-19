@@ -1,1 +1,12 @@
+@import "_reset.scss";
 @import "_SignInUp.scss";
+
+html {
+    // width: 1500px;
+    font-size: 10rem;
+}
+
+body {
+    font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif,"SimSun";
+    color: #fff;
+}

@@ -4,6 +4,8 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res, next) {
     res.render('homepage', {
+        title: 'Home',
+        footMenu: ['公司简介', '常见问题', '联系我们', '诚聘英才', '帮助页面', '意见反馈'],
         illustrations: [
             [{
                     bg: '/images/placeholder.png',

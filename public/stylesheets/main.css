@@ -1,0 +1,482 @@
+a,
+abbr,
+acronym,
+address,
+applet,
+article,
+aside,
+audio,
+b,
+big,
+blockquote,
+body,
+canvas,
+caption,
+center,
+cite,
+code,
+dd,
+del,
+details,
+dfn,
+div,
+dl,
+dt,
+em,
+embed,
+fieldset,
+figcaption,
+figure,
+footer,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+header,
+hgroup,
+html,
+i,
+iframe,
+img,
+ins,
+kbd,
+label,
+legend,
+li,
+mark,
+menu,
+nav,
+object,
+ol,
+output,
+p,
+pre,
+q,
+ruby,
+s,
+samp,
+section,
+small,
+span,
+strike,
+strong,
+sub,
+summary,
+sup,
+table,
+tbody,
+td,
+tfoot,
+th,
+thead,
+time,
+tr,
+tt,
+u,
+ul,
+var,
+video {
+  text-decoration: none;
+  outline: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 0;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  list-style: none;
+}
+
+html {
+  /* Prevent font scaling in landscape while allowing user zoom */
+  -webkit-text-size-adjust: 100%;
+  /* fix font family display error on different browsers */
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.initial-preload canvas,
+.initial-preload img,
+.preload canvas,
+.preload img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.signin-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 5% 0;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+.signup .signin-wrapper {
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+.signin-wrapper .subject {
+  text-align: center;
+  font-size: 18.72px;
+  font-size: 0.117rem;
+  font-weight: 100;
+  margin: 0 0 5%;
+}
+
+.signin-wrapper form {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.signin-wrapper form .signin,
+.signin-wrapper form .signin-name,
+.signin-wrapper form .signin-pwd {
+  width: 100%;
+  height: 2.5vw;
+  margin-bottom: 8%;
+}
+
+.signin-wrapper form .findback-wrapper {
+  position: relative;
+  margin: -3% 0 4%;
+}
+
+.signin-wrapper form .autologin {
+  font-size: 9.36px;
+  font-size: 0.0585rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.signin-wrapper form .autologin input {
+  width: 20px;
+  height: 15px;
+}
+
+.signin-wrapper form .findback {
+  font-size: 9.36px;
+  font-size: 0.0585rem;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 0;
+  cursor: pointer;
+}
+
+.signin-wrapper form .signin {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  border: 0;
+  background-color: #fc9b16;
+  font-size: 16px;
+  font-size: 0.1rem;
+  font-weight: bold;
+  margin-bottom: 5%;
+  cursor: pointer;
+}
+
+.signin-wrapper form .go-signup-wrapper {
+  text-align: right;
+}
+
+.signin-wrapper form .go-signup-wrapper span {
+  font-size: 9.36px;
+  font-size: 0.0585rem;
+  cursor: pointer;
+}
+
+.signup-wrapper {
+  position: relative;
+  top: 0;
+  left: 100%;
+  width: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 5% 0;
+  -webkit-transition: -webkit-transform 0.3s;
+  transition: -webkit-transform 0.3s;
+  transition: transform 0.3s;
+  transition: transform 0.3s, -webkit-transform 0.3s;
+}
+
+.signup .signup-wrapper {
+  -webkit-transform: translateX(-100%);
+  transform: translateX(-100%);
+}
+
+.signup-wrapper .subject {
+  text-align: center;
+  font-size: 18.72px;
+  font-size: 0.117rem;
+  font-weight: 100;
+  margin: 0 0 5%;
+}
+
+.signup-wrapper form {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.signup-wrapper form .signup,
+.signup-wrapper form .signup-phone,
+.signup-wrapper form .signup-pwd {
+  width: 100%;
+  height: 2.5vw;
+  margin-bottom: 8%;
+}
+
+.signup-wrapper form .requestpin-wrapper {
+  position: relative;
+  margin: 0 0 8%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.signup-wrapper form .requestpin,
+.signup-wrapper form .setpin {
+  width: 50%;
+  height: 2.5vw;
+}
+
+.signup-wrapper form .requestpin {
+  width: 40%;
+  line-height: 2.5vw;
+  font-size: 0.975vw;
+  background-color: #72aac5;
+  border-radius: 3px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.signup-wrapper form .signup {
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  border: 0;
+  background-color: #fc9b16;
+  font-size: 16px;
+  font-size: 0.1rem;
+  color: #fff;
+  font-weight: bold;
+  margin-bottom: 5%;
+  cursor: pointer;
+}
+
+.signup-wrapper form .go-signin-wrapper {
+  text-align: right;
+}
+
+.signup-wrapper form .go-signin-wrapper span {
+  font-size: 9.36px;
+  font-size: 0.0585rem;
+  cursor: pointer;
+}
+
+.sign-in-up-wrapper {
+  width: 100vw;
+  height: 100vh;
+  background-image: url("../images/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+.sign-in-up-wrapper .navbar {
+  width: 85%;
+  margin: 0 auto;
+  padding-top: 3%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.sign-in-up-wrapper .navbar .logo-wrapper {
+  white-space: nowrap;
+}
+
+.sign-in-up-wrapper .navbar .logo-wrapper .logo,
+.sign-in-up-wrapper .navbar .logo-wrapper .text-wrapper {
+  display: inline-block;
+}
+
+.sign-in-up-wrapper .navbar .logo-wrapper .logo {
+  width: 46.8px;
+  width: 0.2925rem;
+  margin-right: 6%;
+}
+
+.sign-in-up-wrapper .navbar .logo-wrapper .headline {
+  font-size: 37.44px;
+  font-size: 0.234rem;
+  font-weight: 100;
+}
+
+.sign-in-up-wrapper .navbar .logo-wrapper .subline {
+  font-size: 17.16px;
+  font-size: 0.10725rem;
+  font-weight: 100;
+}
+
+.sign-in-up-wrapper .navbar .backhome {
+  font-size: 10.92px;
+  font-size: 0.06825rem;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.sign-in-up-wrapper .content-wrapper {
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+}
+
+.sign-in-up-wrapper .content-wrapper .left-wrapper,
+.sign-in-up-wrapper .content-wrapper .right-wrapper {
+  display: inline-block;
+}
+
+.sign-in-up-wrapper .content-wrapper .left-wrapper {
+  width: 50%;
+}
+
+.sign-in-up-wrapper .content-wrapper .left-wrapper .box-wrapper .box {
+  position: relative;
+  display: inline-block;
+  width: calc(20% - 10px);
+  margin: 5px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  vertical-align: top;
+}
+
+.sign-in-up-wrapper .content-wrapper .left-wrapper .box-wrapper .box .content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.sign-in-up-wrapper .content-wrapper .left-wrapper .box-wrapper .box .icon {
+  width: 20%;
+  margin-bottom: 10%;
+}
+
+.sign-in-up-wrapper .content-wrapper .left-wrapper .box-wrapper .box .text {
+  font-size: 1vw;
+  color: #0272a8;
+}
+
+.sign-in-up-wrapper .content-wrapper .right-wrapper {
+  width: 28%;
+  position: relative;
+  overflow: hidden;
+}
+
+.sign-in-up-wrapper .footbar {
+  width: 100%;
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+}
+
+.sign-in-up-wrapper .footbar .menu-wrapper {
+  white-space: normal;
+  text-align: center;
+}
+
+.sign-in-up-wrapper .footbar .menu-item,
+.sign-in-up-wrapper .footbar .separateline {
+  font-size: 9.36px;
+  font-size: 0.0585rem;
+  display: inline-block;
+}
+
+.sign-in-up-wrapper .footbar .menu-item {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.sign-in-up-wrapper .footbar .menu-item:nth-child(1) {
+  margin-left: 0;
+}
+
+.sign-in-up-wrapper .footbar .separateline {
+  margin-left: 10px;
+}
+
+.sign-in-up-wrapper .footbar .copyright {
+  font-size: 9.36px;
+  font-size: 0.0585rem;
+  text-align: center;
+  margin-top: 5px;
+}
+
+html {
+  font-size: 1600px;
+  font-size: 10rem;
+}
+
+body {
+  font-family: "Microsoft YaHei",Arial,Helvetica,sans-serif,"SimSun";
+  color: #fff;
+}

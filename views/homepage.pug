@@ -10,7 +10,15 @@ mixin boxItems(illustrations)
             .icon.preload   
                 img(src=item.icon)
             .text= item.text
-                    
+
+    
+mixin menuItems(footMenu)
+    each menu, i in footMenu
+        if i != footMenu.length-1
+            li.menu-item #{menu}<span class='separateline'>|</span>
+        else
+            li.menu-item= menu
+            
 block content
     .sign-in-up-wrapper
         .navbar
@@ -26,6 +34,9 @@ block content
             .left-wrapper
                 +boxItems(illustrations)
             .right-wrapper
+                include signin.pug
+                include signup.pug
         .footbar
             ul.menu-wrapper
+                +menuItems(footMenu)
             p.copyright Copyright© 2016 - 2017, www.baidu.com. All rights reserved. | ICP备案：苏1835412号

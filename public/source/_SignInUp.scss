@@ -1,3 +1,6 @@
+@import "_SignIn.scss";
+@import "_SignUp.scss";
+
 .sign-in-up-wrapper {
     width: 100vw;
     height: 100vh;
@@ -51,7 +54,7 @@
         top: 50%;
         transform: translateY(-50%);
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: flex-start;
 
         .left-wrapper,
@@ -99,7 +102,9 @@
         }
 
         .right-wrapper {
-            width: 40%;
+            width: 28%;
+            position: relative;
+            overflow: hidden;
         }
     }
 
