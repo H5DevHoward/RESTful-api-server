@@ -6,7 +6,6 @@
     "author": "H5DevHoward <h5devhoward@gmail.com>",
     "dependencies": {
         "body-parser": "^1.17.2",
-        "crypto": "^0.0.3",
         "express": "^4.12.3",
         "jsonwebtoken": "^7.4.1",
         "mongoose": "4.10.8",

@@ -1,8 +1,8 @@
 .signin-wrapper
     h1.subject 会员登录
-    form
-        input.signin-name(type="text" name="name")
-        input.signin-pwd(type="password" name="password")
+    form(name="signin" method ="post" action="/api/signin")
+        input.signin-name(type="text" name="phone" placeholder="输入手机")
+        input.signin-pwd(type="password" name="password" placeholder="输入密码")
         .findback-wrapper
             label.autologin
                 input(type="checkbox" name="autologin")

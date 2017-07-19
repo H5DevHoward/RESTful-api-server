@@ -1,6 +1,6 @@
 .signup-wrapper
     h1.subject 会员注册
-    form
+    form(name="signup" method ="post" action="/api/signup")
         input.signup-phone(type="text" name="phone" placeholder="请输入手机")
         input.signup-pwd(type="password" name="password" placeholder="请输入密码")
         .requestpin-wrapper
