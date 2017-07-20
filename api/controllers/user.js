@@ -36,8 +36,7 @@ module.exports = {
             });
         }
     },
-    //GET /user operationId
-    getAll(req, res, next) {
+    getAll(req, res) {
         Service.find()
         .then(data => {
             res.json({
@@ -45,13 +44,14 @@ module.exports = {
             });
         });
     },
-    //POST /user operationId
-    save(req, res, next) {
+    save(req, res) {
         const {
             phone,
             password,
             pin,
         } = req.body;
+
+        console.log(pin);
 
         Service.find({
             phone
@@ -77,13 +77,14 @@ module.exports = {
             }
         });
     },
-    //GET /user/{id} operationId
-    getOne(req, res, next) {
+    getOne(req, res) {
         const {
             phone,
             password,
             autologin,
         } = req.body;
+
+        console.log(autologin);
 
         Service.find({
             phone,
@@ -105,8 +106,6 @@ module.exports = {
             }
         });
     },
-    //PUT /user/{id} operationId
-    update(req, res, next) {},
-    //DELETE /user/{id} operationId
-    delMovie(req, res, next) {},
+    // update(req, res) {},
+    // delMovie(req, res) {},
 };

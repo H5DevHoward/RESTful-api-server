@@ -17,7 +17,7 @@ goSignInDom.addEventListener('click', () => {
 });
 
 window.onpopstate = event => {
-    console.log("location: " + document.location + ", state: " + JSON.stringify(event.state));
+    console.log('location: ' + document.location + ', state: ' + JSON.stringify(event.state));
     if(location.hash === '#signup') {
         rightWrapperDom.classList.add('signup');
     }else {

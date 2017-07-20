@@ -1,27 +1,34 @@
 {
-    "name": "RESTful-api-server",
-    "version": "1.0.0",
-    "main": "server.js",
-    "repository": "https://github.com/H5DevHoward/RESTful-api-server.git",
-    "author": "H5DevHoward <h5devhoward@gmail.com>",
-    "dependencies": {
-        "body-parser": "^1.17.2",
-        "express": "^4.12.3",
-        "jsonwebtoken": "^7.4.1",
-        "mongoose": "4.10.8",
-        "morgan": "^1.8.2",
-        "node-sass-middleware": "^0.11.0",
-        "postcss-cssnext": "^3.0.2",
-        "postcss-import": "^10.0.0",
-        "pug": "^2.0.0-rc.2"
-    },
-    "scripts": {
-        "start": "nodemon server.js",
-        "compile": "postcss public/source/main.scss -o .tmp/main.scss -m",
-        "dev": "npm run compile && nodemon server.js"
-    },
-    "license": "MIT",
-    "devDependencies": {
-        "postcss-cli": "^4.1.0"
-    }
+  "name": "RESTful-api-server",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/H5DevHoward/RESTful-api-server.git",
+  "author": "H5DevHoward <h5devhoward@gmail.com>",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.12.3",
+    "jsonwebtoken": "^7.4.1",
+    "mongoose": "4.10.8",
+    "morgan": "^1.8.2",
+    "node-sass-middleware": "^0.11.0",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-import": "^10.0.0",
+    "pug": "^2.0.0-rc.2"
+  },
+  "scripts": {
+    "start": "nodemon server.js",
+    "compile": "postcss public/source/main.scss -o .tmp/main.scss -m",
+    "dev": "npm run compile && nodemon server.js",
+    "lint": "jshint .",
+    "validate": "npm ls"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "postcss-cli": "^4.1.0"
+  },
+  "pre-commit": [
+    "lint",
+    "validate",
+    "test"
+  ]
 }

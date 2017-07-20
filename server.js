@@ -6,7 +6,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
-var connection = require('./config/database.js');
+require('./config/database.js'); // var connection = 
 
 var sassMiddleware = require('node-sass-middleware');
 

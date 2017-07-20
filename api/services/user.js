@@ -8,7 +8,9 @@ module.exports = {
             phone: user.phone,
             password: user.password,
         }).save(err => {
-            if(err) throw err;
+            if (err) {
+                throw err;
+            }
         });
     },
     /*
@@ -16,7 +18,9 @@ module.exports = {
      */
     async find(user) {
         return User.find(user && user.phone ? user : {}, (err, users) => {
-            if(err) return Promise.reject(err);
+            if (err) {
+                throw err;
+            }
         });
     },
     /*
@@ -26,5 +30,5 @@ module.exports = {
     /*
      * Update a user with the given id
      */
-    update(id, user) {}
-}
+    update(id, user) {},
+};

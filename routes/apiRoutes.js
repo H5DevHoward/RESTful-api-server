@@ -12,7 +12,7 @@ router.use((req, res, next) => {
 });
 
 // route to show a random message (GET http://localhost:8080/api/)
-router.get('/', (req, res, next) => {
+router.get('/', (req, res) => {
     res.json({
         message: 'Welcome to the here!'
     });
