@@ -1,4 +1,5 @@
-const User = require('../models/user'); // get our mongoose model
+const db = require('../../config/database').connection;
+const User = require('../models/User')(db);
 
 module.exports = {
     async save(user) {
