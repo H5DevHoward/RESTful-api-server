@@ -1,6 +1,6 @@
-// =======================
-// get the packages we need ============
-// =======================
+// ========================
+// get the packages we need
+// ========================
 var path = require('path');
 var express = require('express');
 var app = express();
