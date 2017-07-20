@@ -1,16 +1,48 @@
 'use strict';
 // Include our "db"
-// var express = require('express');
-// var app = express();
 var Service = require('../services/user');
 var jwt = require('jsonwebtoken'); // used to create, sign, and verify tokens
+var config = require('../../config');
+var tokenMap = new Map();
+tokenMap.set('superSecret', config.secret); // secret variable
 
-// Exports all the functions to perform on the db
+// Exports all the functions to perform on the Service
 module.exports = {
+    checkToken(req, res, next) {
+        // check header or url parameters or post parameters for token
+        const token = req.body.token || req.query.token || req.headers['x-access-token'];
+
+        // decode token
+        if (token) {
+            // verifies secret and checks exp
+            jwt.verify(token, tokenMap.get('superSecret'), (err, decoded) => {
+                if (err) {
+                    return res.json({
+                        success: false,
+                        message: 'Failed to authenticate token.'
+                    });
+                } else {
+                    // if everything is good, save to request for use in other routes
+                    req.decoded = decoded;
+                    next();
+                }
+            });
+        } else {
+            // if there is no token
+            // return an error
+            return res.status(403).send({
+                success: false,
+                message: 'No token provided.'
+            });
+        }
+    },
     //GET /user operationId
     getAll(req, res, next) {
-        res.json({
-            users: db.find()
+        Service.find()
+        .then(data => {
+            res.json({
+                data,
+            });
         });
     },
     //POST /user operationId
@@ -21,13 +53,15 @@ module.exports = {
             pin,
         } = req.body;
 
-        Service.find({phone}).then(data => {
-            if(data.length === 0) {
+        Service.find({
+            phone
+        }).then(data => {
+            if (data.length === 0) {
                 Service.save({
                     phone,
                     password,
                 }).then(data => {
-                    if(data) {
+                    if (data) {
                         res.redirect('/');
                     } else {
                         res.send('数据库存储异常');
@@ -51,84 +85,28 @@ module.exports = {
             autologin,
         } = req.body;
 
-        Service.find({phone, password}).then(data => {
-            if(data.length === 1 && data[0].phone === phone) {
-                const token = jwt.sign(data[0], 'superSecret', {
-                    expiresIn: "24h" // expires in 24 hours
+        Service.find({
+            phone,
+            password
+        }).then(data => {
+            if (data.length === 1 && data[0].phone === phone) {
+                const token = jwt.sign(data[0], tokenMap.get('superSecret'), {
+                    expiresIn: '24h' // expires in 24 hours
                 });
                 res.json({
                     success: true,
                     token,
                 });
             } else {
-                res.redirect('/');
+                res.json({
+                    success: false,
+                    message: '用户名或者密码错误',
+                });
             }
         });
     },
     //PUT /user/{id} operationId
-    update(req, res, next) {
-        var id = req.swagger.params.id.value; //req.swagger contains the path parameters
-        var user = req.body;
-        if (db.update(id, user)) {
-            res.json({
-                success: 1,
-                description: "Movie updated!"
-            });
-        } else {
-            res.status(204).send();
-        }
-    },
+    update(req, res, next) {},
     //DELETE /user/{id} operationId
-    delMovie(req, res, next) {
-        var id = req.swagger.params.id.value; //req.swagger contains the path parameters
-        if (db.remove(id)) {
-            res.json({
-                success: 1,
-                description: "Movie deleted!"
-            });
-        } else {
-            res.status(204).send();
-        }
-    },
+    delMovie(req, res, next) {},
 };
-// module.exports = {getAll, save, getOne, update, delMovie};
-
-// //GET /user operationId
-// function getAll(req, res, next) {
-//   res.json({ users: db.find()});
-// }
-// //POST /user operationId
-// function save(req, res, next) {
-//     res.json({success: db.save(req.body), description: "Movie added to the list!"});
-// }
-// //GET /user/{id} operationId
-// function getOne(req, res, next) {
-//     var id = req.swagger.params.id.value; //req.swagger contains the path parameters
-//     var user = db.find(id);
-//     if(user) {
-//         res.json(user);
-//     }else {
-//         res.status(204).send();
-//     }
-// }
-// //PUT /user/{id} operationId
-// function update(req, res, next) {
-//     var id = req.swagger.params.id.value; //req.swagger contains the path parameters
-//     var user = req.body;
-//     if(db.update(id, user)){
-//         res.json({success: 1, description: "Movie updated!"});
-//     }else{
-//         res.status(204).send();
-//     }
-//
-// }
-// //DELETE /user/{id} operationId
-// function delMovie(req, res, next) {
-//     var id = req.swagger.params.id.value; //req.swagger contains the path parameters
-//     if(db.remove(id)){
-//         res.json({success: 1, description: "Movie deleted!"});
-//     }else{
-//         res.status(204).send();
-//     }
-//
-// }
